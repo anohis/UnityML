@@ -3,3 +3,6 @@ UnityML/Logs/
 UnityML/Temp/
 UnityML/obj/
 UnityML/Assets/Packages
+UnityML/Assets/Plugins
+NugetDll/NugetDll/NugetDll/bin
+NugetDll/NugetDll/NugetDll/obj
