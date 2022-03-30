@@ -53,7 +53,6 @@
     <UnityVersion>2020.3.17f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Handwritten\Model.cs" />
     <Compile Include="Assets\Scripts\Utility\Math\MathUtility.cs" />
     <Compile Include="Assets\Scripts\Utility\TextureUtility.cs" />
     <Compile Include="Assets\Scripts\Utility\VectorExtenstion.cs" />
@@ -61,87 +60,7 @@
     <Compile Include="Assets\Scripts\Handwritten\BoardWriter.cs" />
     <Compile Include="Assets\Scripts\Utility\ButtonAttribute.cs" />
     <Compile Include="Assets\Scripts\Handwritten\Board.cs" />
-    <Compile Include="Assets\Scripts\Handwritten\MnistLoader.cs" />
     <Compile Include="Assets\Scripts\Utility\Math\RectTransformExtenstion.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Assets\Packages\Google.Protobuf.3.11.3\lib\netstandard2.0\Google.Protobuf.xml" />
-    <None Include="Assets\Packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.xml" />
-    <None Include="Assets\Packages\TensorFlow.NET.0.70.1\lib\netstandard2.0\Tensorflow.Binding.dll" />
-    <None Include="Assets\Packages\Google.Protobuf.3.11.3\lib\netstandard2.0\Google.Protobuf.dll" />
-    <None Include="Assets\Packages\System.Runtime.CompilerServices.Unsafe.6.0.0\LICENSE.TXT" />
-    <None Include="Assets\Packages\System.Memory.4.5.4\useSharedDesignerContext.txt" />
-    <None Include="Assets\Packages\System.Buffers.4.5.1\lib\netstandard2.0\System.Buffers.xml" />
-    <None Include="Assets\Packages\Microsoft.NETCore.Platforms.1.1.0\ThirdPartyNotices.txt" />
-    <None Include="Assets\Packages\MethodBoundaryAspect.Fody.2.0.144\weaver\MethodBoundaryAspect.Fody.dll" />
-    <None Include="Assets\Packages\System.Threading.Tasks.Extensions.4.5.4\lib\netstandard2.0\System.Threading.Tasks.Extensions.xml" />
-    <None Include="Assets\Packages\System.Memory.4.5.4\LICENSE.TXT" />
-    <None Include="Assets\Packages\System.Memory.4.5.4\lib\netstandard2.0\System.Memory.dll" />
-    <None Include="Assets\Packages\Protobuf.Text.0.5.0\lib\netstandard2.0\Protobuf.Text.dll" />
-    <None Include="Assets\Packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll" />
-    <None Include="Assets\Packages\Microsoft.Bcl.AsyncInterfaces.6.0.0\lib\netstandard2.0\Microsoft.Bcl.AsyncInterfaces.xml" />
-    <None Include="Assets\Packages\Serilog.Sinks.Console.4.0.1\lib\netstandard2.0\Serilog.Sinks.Console.dll" />
-    <None Include="Assets\Packages\Serilog.Sinks.Console.4.0.1\lib\netstandard2.0\Serilog.Sinks.Console.xml" />
-    <None Include="Assets\Packages\HDF.PInvoke.1.10.1.10.612\lib\netstandard2.0\HDF.PInvoke.1.10.dll" />
-    <None Include="Assets\Packages\System.Resources.Extensions.6.0.0\lib\netstandard2.0\System.Resources.Extensions.xml" />
-    <None Include="Assets\Packages\Microsoft.NETCore.Platforms.1.1.0\dotnet_library_license.txt" />
-    <None Include="Assets\Packages\TensorFlow.Keras.0.7.0\lib\netstandard2.0\Tensorflow.Keras.xml" />
-    <None Include="Assets\Packages\System.Resources.Extensions.6.0.0\THIRD-PARTY-NOTICES.TXT" />
-    <None Include="Assets\Packages\Fody.6.0.5\netstandardtask\FodyCommon.dll" />
-    <None Include="Assets\Packages\Fody.6.0.5\netstandardtask\Mono.Cecil.Pdb.dll" />
-    <None Include="Assets\Packages\System.Runtime.CompilerServices.Unsafe.6.0.0\useSharedDesignerContext.txt" />
-    <None Include="Assets\Packages\System.Buffers.4.5.1\THIRD-PARTY-NOTICES.TXT" />
-    <None Include="Assets\Packages\Microsoft.Bcl.AsyncInterfaces.6.0.0\useSharedDesignerContext.txt" />
-    <None Include="Assets\Packages\TensorFlow.NET.0.70.1\lib\netstandard2.0\Tensorflow.Binding.xml" />
-    <None Include="Assets\Packages\MethodBoundaryAspect.Fody.2.0.144\lib\netstandard1.0\MethodBoundaryAspect.dll" />
-    <None Include="Assets\Packages\SharpZipLib.1.3.3\lib\netstandard2.0\ICSharpCode.SharpZipLib.dll" />
-    <None Include="Assets\Packages\Microsoft.Extensions.DependencyInjection.6.0.0\THIRD-PARTY-NOTICES.TXT" />
-    <None Include="Assets\Packages\Fody.6.0.5\netstandardtask\FodyHelpers.dll" />
-    <None Include="Assets\Packages\System.Resources.Extensions.6.0.0\LICENSE.TXT" />
-    <None Include="Assets\Packages\Microsoft.Extensions.DependencyInjection.6.0.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.dll" />
-    <None Include="Assets\Packages\System.Memory.4.5.4\lib\netstandard2.0\System.Memory.xml" />
-    <None Include="Assets\Packages\System.Threading.Tasks.Extensions.4.5.4\LICENSE.TXT" />
-    <None Include="Assets\Packages\System.Threading.Tasks.Extensions.4.5.4\version.txt" />
-    <None Include="Assets\Packages\Microsoft.Extensions.DependencyInjection.Abstractions.6.0.0\useSharedDesignerContext.txt" />
-    <None Include="Assets\Packages\System.Memory.4.5.4\THIRD-PARTY-NOTICES.TXT" />
-    <None Include="Assets\Packages\NETStandard.Library.1.6.1\ThirdPartyNotices.txt" />
-    <None Include="Assets\Packages\HDF.PInvoke.1.10.1.10.612\runtimes\win-x64\native\hdf5_hl.dll" />
-    <None Include="Assets\Packages\Microsoft.Extensions.DependencyInjection.6.0.0\useSharedDesignerContext.txt" />
-    <None Include="Assets\Packages\SharpZipLib.1.3.3\lib\netstandard2.0\ICSharpCode.SharpZipLib.xml" />
-    <None Include="Assets\Packages\Microsoft.Bcl.AsyncInterfaces.6.0.0\THIRD-PARTY-NOTICES.TXT" />
-    <None Include="Assets\Packages\Fody.6.0.5\netstandardtask\Fody.dll" />
-    <None Include="Assets\Packages\System.Memory.4.5.4\version.txt" />
-    <None Include="Assets\Packages\MNIST.IO.1.0.1\lib\netstandard1.3\MNIST.IO.dll" />
-    <None Include="Assets\Packages\Microsoft.Extensions.DependencyInjection.Abstractions.6.0.0\THIRD-PARTY-NOTICES.TXT" />
-    <None Include="Assets\Packages\System.Threading.Tasks.Extensions.4.5.4\useSharedDesignerContext.txt" />
-    <None Include="Assets\Packages\Serilog.2.10.0\lib\netstandard2.0\Serilog.dll" />
-    <None Include="Assets\Packages\System.Resources.Extensions.6.0.0\lib\netstandard2.0\System.Resources.Extensions.dll" />
-    <None Include="Assets\Packages\System.Resources.Extensions.6.0.0\useSharedDesignerContext.txt" />
-    <None Include="Assets\Packages\Microsoft.Extensions.DependencyInjection.Abstractions.6.0.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.xml" />
-    <None Include="Assets\Packages\Fody.6.0.5\netstandardtask\FodyIsolated.dll" />
-    <None Include="Assets\Packages\HDF5-CSharp.1.12.5\lib\netstandard2.0\HDF5CSharp.dll" />
-    <None Include="Assets\Packages\Microsoft.Bcl.AsyncInterfaces.6.0.0\LICENSE.TXT" />
-    <None Include="Assets\Packages\HDF.PInvoke.1.10.1.10.612\runtimes\win-x64\native\hdf5.dll" />
-    <None Include="Assets\Packages\Microsoft.Bcl.AsyncInterfaces.6.0.0\lib\netstandard2.0\Microsoft.Bcl.AsyncInterfaces.dll" />
-    <None Include="Assets\Packages\System.Buffers.4.5.1\lib\netstandard2.0\System.Buffers.dll" />
-    <None Include="Assets\Packages\System.Buffers.4.5.1\LICENSE.TXT" />
-    <None Include="Assets\Packages\Microsoft.Extensions.DependencyInjection.6.0.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.xml" />
-    <None Include="Assets\Packages\Microsoft.Extensions.DependencyInjection.Abstractions.6.0.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll" />
-    <None Include="Assets\Packages\Serilog.2.10.0\lib\netstandard2.0\Serilog.xml" />
-    <None Include="Assets\Packages\System.Buffers.4.5.1\version.txt" />
-    <None Include="Assets\Packages\SciSharp.TensorFlow.Redist.2.7.0\runtimes\win-x64\native\tensorflow.dll" />
-    <None Include="Assets\Packages\System.Threading.Tasks.Extensions.4.5.4\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll" />
-    <None Include="Assets\Packages\Microsoft.Extensions.DependencyInjection.Abstractions.6.0.0\LICENSE.TXT" />
-    <None Include="Assets\Packages\Fody.6.0.5\netstandardtask\Mono.Cecil.dll" />
-    <None Include="Assets\Packages\NETStandard.Library.1.6.1\dotnet_library_license.txt" />
-    <None Include="Assets\Packages\SciSharp.TensorFlow.Redist.2.7.0\LICENSE.txt" />
-    <None Include="Assets\Packages\Fody.6.0.5\netstandardtask\Mono.Cecil.Rocks.dll" />
-    <None Include="Assets\Packages\TensorFlow.Keras.0.7.0\lib\netstandard2.0\Tensorflow.Keras.dll" />
-    <None Include="Assets\Packages\System.Runtime.CompilerServices.Unsafe.6.0.0\THIRD-PARTY-NOTICES.TXT" />
-    <None Include="Assets\Packages\Microsoft.Extensions.DependencyInjection.6.0.0\LICENSE.TXT" />
-    <None Include="Assets\Packages\System.Buffers.4.5.1\useSharedDesignerContext.txt" />
-    <None Include="Assets\Packages\System.Threading.Tasks.Extensions.4.5.4\THIRD-PARTY-NOTICES.TXT" />
-    <None Include="Assets\Packages\SciSharp.TensorFlow.Redist.2.7.0\THIRD_PARTY_NOTICES.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -368,87 +287,6 @@
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@2.0.0\Runtime\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="MethodBoundaryAspect.Fody">
-      <HintPath>Assets\Packages\MethodBoundaryAspect.Fody.2.0.144\weaver\MethodBoundaryAspect.Fody.dll</HintPath>
-    </Reference>
-    <Reference Include="Mono.Cecil.Pdb">
-      <HintPath>Assets\Packages\Fody.6.0.5\netstandardtask\Mono.Cecil.Pdb.dll</HintPath>
-    </Reference>
-    <Reference Include="Tensorflow.Keras">
-      <HintPath>Assets\Packages\TensorFlow.Keras.0.7.0\lib\netstandard2.0\Tensorflow.Keras.dll</HintPath>
-    </Reference>
-    <Reference Include="Serilog.Sinks.Console">
-      <HintPath>Assets\Packages\Serilog.Sinks.Console.4.0.1\lib\netstandard2.0\Serilog.Sinks.Console.dll</HintPath>
-    </Reference>
-    <Reference Include="Tensorflow.Binding">
-      <HintPath>Assets\Packages\TensorFlow.NET.0.70.1\lib\netstandard2.0\Tensorflow.Binding.dll</HintPath>
-    </Reference>
-    <Reference Include="FodyCommon">
-      <HintPath>Assets\Packages\Fody.6.0.5\netstandardtask\FodyCommon.dll</HintPath>
-    </Reference>
-    <Reference Include="MethodBoundaryAspect">
-      <HintPath>Assets\Packages\MethodBoundaryAspect.Fody.2.0.144\lib\netstandard1.0\MethodBoundaryAspect.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Memory">
-      <HintPath>Assets\Packages\System.Memory.4.5.4\lib\netstandard2.0\System.Memory.dll</HintPath>
-    </Reference>
-    <Reference Include="Serilog">
-      <HintPath>Assets\Packages\Serilog.2.10.0\lib\netstandard2.0\Serilog.dll</HintPath>
-    </Reference>
-    <Reference Include="MNIST.IO">
-      <HintPath>Assets\Packages\MNIST.IO.1.0.1\lib\netstandard1.3\MNIST.IO.dll</HintPath>
-    </Reference>
-    <Reference Include="HDF.PInvoke.1.10">
-      <HintPath>Assets\Packages\HDF.PInvoke.1.10.1.10.612\lib\netstandard2.0\HDF.PInvoke.1.10.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.Protobuf">
-      <HintPath>Assets\Packages\Google.Protobuf.3.11.3\lib\netstandard2.0\Google.Protobuf.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Bcl.AsyncInterfaces">
-      <HintPath>Assets\Packages\Microsoft.Bcl.AsyncInterfaces.6.0.0\lib\netstandard2.0\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
-    </Reference>
-    <Reference Include="FodyHelpers">
-      <HintPath>Assets\Packages\Fody.6.0.5\netstandardtask\FodyHelpers.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Extensions.DependencyInjection">
-      <HintPath>Assets\Packages\Microsoft.Extensions.DependencyInjection.6.0.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.dll</HintPath>
-    </Reference>
-    <Reference Include="Mono.Cecil">
-      <HintPath>Assets\Packages\Fody.6.0.5\netstandardtask\Mono.Cecil.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
-      <HintPath>Assets\Packages\Microsoft.Extensions.DependencyInjection.Abstractions.6.0.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
-    </Reference>
-    <Reference Include="Fody">
-      <HintPath>Assets\Packages\Fody.6.0.5\netstandardtask\Fody.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Resources.Extensions">
-      <HintPath>Assets\Packages\System.Resources.Extensions.6.0.0\lib\netstandard2.0\System.Resources.Extensions.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Threading.Tasks.Extensions">
-      <HintPath>Assets\Packages\System.Threading.Tasks.Extensions.4.5.4\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
-    </Reference>
-    <Reference Include="FodyIsolated">
-      <HintPath>Assets\Packages\Fody.6.0.5\netstandardtask\FodyIsolated.dll</HintPath>
-    </Reference>
-    <Reference Include="Mono.Cecil.Rocks">
-      <HintPath>Assets\Packages\Fody.6.0.5\netstandardtask\Mono.Cecil.Rocks.dll</HintPath>
-    </Reference>
-    <Reference Include="Protobuf.Text">
-      <HintPath>Assets\Packages\Protobuf.Text.0.5.0\lib\netstandard2.0\Protobuf.Text.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Buffers">
-      <HintPath>Assets\Packages\System.Buffers.4.5.1\lib\netstandard2.0\System.Buffers.dll</HintPath>
-    </Reference>
-    <Reference Include="HDF5CSharp">
-      <HintPath>Assets\Packages\HDF5-CSharp.1.12.5\lib\netstandard2.0\HDF5CSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="ICSharpCode.SharpZipLib">
-      <HintPath>Assets\Packages\SharpZipLib.1.3.3\lib\netstandard2.0\ICSharpCode.SharpZipLib.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Runtime.CompilerServices.Unsafe">
-      <HintPath>Assets\Packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.17f1\Editor\Data\NetStandard\ref\2.0.0\netstandard.dll</HintPath>
