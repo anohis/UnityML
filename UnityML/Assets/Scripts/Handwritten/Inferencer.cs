@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace ML.Handwritten
 {
@@ -7,13 +6,13 @@ namespace ML.Handwritten
 	{
 		[SerializeField] private Board _board = null;
 		[SerializeField] private HandwrittenClassifier _classifier = null;
-		[SerializeField] private UIPercentage[] _results;
+		[SerializeField] private UIClassifyResult _result = null;
 
-		private void Awake()
+		private void OnEnable()
 		{
 			_board.OnChange += OnBoardChange;
 		}
-		private void OnDestroy()
+		private void OnDisable()
 		{
 			_board.OnChange -= OnBoardChange;
 		}
@@ -22,10 +21,7 @@ namespace ML.Handwritten
 		{
 			var image = _board.Image;
 			var result = _classifier.Classify(image);
-			for (int i = 0; i < result.Length; i++) 
-			{
-				_results[i].Show(result[i]);
-			}
+			_result.Show(result);
 		}
 	}
 }

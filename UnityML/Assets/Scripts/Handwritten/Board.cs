@@ -1,3 +1,4 @@
+using JFun.Gameplay.PS2;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,11 +10,11 @@ namespace ML.Handwritten
 	[RequireComponent(typeof(RawImage))]
 	public class Board : MonoBehaviour
 	{
-		private const byte MaxColor = byte.MaxValue;
-
 		public event Action OnChange;
 
 		[SerializeField] private Vector2Int _boardSize;
+		[Button(nameof(Clear), nameof(Clear))]
+		[SerializeField] private int _clearBtn;
 
 		private ImageData _image;
 		private Texture2D _texture;
@@ -21,7 +22,7 @@ namespace ML.Handwritten
 		public Vector2Int Size => _boardSize;
 		public ImageData Image => _image;
 
-		public void SetPixel(Vector2Int pixel, byte color)
+		public void SetPixel(Vector2Int pixel, float color)
 		{
 			_image.SetPixel(pixel, color);
 
@@ -32,7 +33,7 @@ namespace ML.Handwritten
 		}
 		public void SetImage(ImageData image)
 		{
-			_image = image;
+			Array.Copy(image.Pixels, _image.Pixels, _image.Pixels.Length);
 
 			for (int x = 0; x < image.Width; x++)
 			{
@@ -63,10 +64,16 @@ namespace ML.Handwritten
 			GetComponent<RectTransform>().sizeDelta = (Vector2)_boardSize;
 		}
 
-		private Color GenerateColor(byte value)
+		private Color GenerateColor(float value)
 		{
-			var v = value / (float)MaxColor;
-			return new Color(v, v, v);
+			return new Color(value, value, value);
+		}
+
+		private void Clear() 
+		{
+			_image.Fill(0);
+			_texture.Fill(GenerateColor(0));
+			_texture.Apply();
 		}
 	}
 }
