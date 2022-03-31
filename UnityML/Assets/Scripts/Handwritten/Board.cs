@@ -27,6 +27,8 @@ namespace ML.Handwritten
 
 			_texture.SetPixel(pixel, GenerateColor(color));
 			_texture.Apply();
+
+			OnChange?.Invoke();
 		}
 		public void SetImage(ImageData image)
 		{
@@ -41,6 +43,8 @@ namespace ML.Handwritten
 				}
 			}
 			_texture.Apply();
+
+			OnChange?.Invoke();
 		}
 
 		private void Awake()
