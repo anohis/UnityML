@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-	<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
     <DebugType>portable</DebugType>
     <ProduceReferenceAssembly>True</ProduceReferenceAssembly>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
@@ -14,4 +14,11 @@
     <PackageReference Include="TensorFlow.Keras" Version="0.7.0" />
     <PackageReference Include="TensorFlow.NET" Version="0.70.1" />
   </ItemGroup>
+
+  <PropertyGroup>
+    <PostBuildEvent>
+      xcopy "$(ProjectDir)$(OutDir)*.dll" "$(SolutionDir)..\..\UnityML\Assets\Plugins\" /Y /I  /R /C
+      xcopy "$(ProjectDir)$(OutDir)*.pdb" "$(SolutionDir)..\..\UnityML\Assets\Plugins\" /Y /I  /R /C
+    </PostBuildEvent>
+  </PropertyGroup>
 </Project>
