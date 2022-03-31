@@ -14,7 +14,7 @@ namespace ML.Handwritten
         [SerializeField] private float _scale = 1;
         [SerializeField] private Color _normalColor;
         [SerializeField] private Color _highlightColor;
-        [SerializeField] private Color _drawColor;
+        [SerializeField] private byte _drawColor;
 
         private Texture2D _texture;
         private Bounds2D _bounds;
@@ -31,7 +31,6 @@ namespace ML.Handwritten
 
             GetComponent<RawImage>().texture = _texture;
         }
-
         private void OnValidate()
         {
             if (_board != null)
@@ -40,7 +39,6 @@ namespace ML.Handwritten
                 _board.GetComponent<RectTransform>().localScale = new Vector3(_scale, _scale, _scale);
             }
         }
-
         private void Update()
         {
             var mousePos = Input.mousePosition.XY();

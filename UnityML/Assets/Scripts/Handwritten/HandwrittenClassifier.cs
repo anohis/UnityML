@@ -6,6 +6,11 @@ namespace ML.Handwritten
     {
         private Model _model;
 
+        public void Classify() 
+        {
+
+        }
+
         private void Awake()
         {
             _model = new Model();

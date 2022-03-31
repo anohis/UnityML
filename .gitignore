@@ -6,3 +6,5 @@ UnityML/Assets/Packages
 UnityML/Assets/Plugins
 NugetDll/NugetDll/NugetDll/bin
 NugetDll/NugetDll/NugetDll/obj
+UnityML/Assembly-CSharp.csproj
+UnityML/UnityML.sln
