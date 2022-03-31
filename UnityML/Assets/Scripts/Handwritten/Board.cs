@@ -22,14 +22,25 @@ namespace ML.Handwritten
 		public Vector2Int Size => _boardSize;
 		public ImageData Image => _image;
 
+		public void Apply()
+		{
+			_texture.Apply();
+			OnChange?.Invoke();
+		}
+		public void SetPixel(int x, int y, float color, bool autoApply = true)
+		{
+			_image.SetPixel(x, y, color);
+
+			_texture.SetPixel(x, y, GenerateColor(color));
+
+			if (autoApply)
+			{
+				Apply();
+			}
+		}
 		public void SetPixel(Vector2Int pixel, float color)
 		{
-			_image.SetPixel(pixel, color);
-
-			_texture.SetPixel(pixel, GenerateColor(color));
-			_texture.Apply();
-
-			OnChange?.Invoke();
+			SetPixel(pixel.x, pixel.y, color);
 		}
 		public void SetImage(ImageData image)
 		{
@@ -69,7 +80,7 @@ namespace ML.Handwritten
 			return new Color(value, value, value);
 		}
 
-		private void Clear() 
+		private void Clear()
 		{
 			_image.Fill(0);
 			_texture.Fill(GenerateColor(0));

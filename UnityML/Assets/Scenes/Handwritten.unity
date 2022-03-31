@@ -770,6 +770,7 @@ MonoBehaviour:
   _normalColor: {r: 0, g: 0, b: 0, a: 0}
   _highlightColor: {r: 1, g: 1, b: 0, a: 1}
   _drawColor: 1
+  _drawRadius: 1
 --- !u!114 &460734304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2025,7 +2026,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inputSize: 784
   _classSize: 10
-  _hiddenSize: 32
+  _hiddenSize: 64
   _hiddenLayers: 1
   _learningRate: 0.001
 --- !u!4 &1199601279
@@ -2672,7 +2673,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mnistLoader: {fileID: 1941196532}
   _classifier: {fileID: 1199601278}
-  _trainCountPerUpdate: 100
+  _trainCountPerUpdate: 1000
 --- !u!4 &1742880748
 Transform:
   m_ObjectHideFlags: 0

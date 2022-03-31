@@ -16,6 +16,7 @@ namespace ML.Handwritten
 		[SerializeField] private Color _highlightColor;
 		[Range(0f, 1f)]
 		[SerializeField] private float _drawColor = 1;
+		[SerializeField] private float _drawRadius = 1;
 
 		private Texture2D _texture;
 		private Bounds2D _bounds;
@@ -49,7 +50,7 @@ namespace ML.Handwritten
 				HighlightPixel(pixel);
 				if (Input.GetMouseButton(0))
 				{
-					_board.SetPixel(pixel, _drawColor);
+					DrawBoard(pixel);
 				}
 			}
 
@@ -69,6 +70,22 @@ namespace ML.Handwritten
 				_texture.SetPixel(_currentPixel, _highlightColor);
 				_texture.Apply();
 			}
+		}
+		private void DrawBoard(Vector2Int pixel)
+		{
+			var radius = _drawRadius - 1;
+			var minx = (int)Mathf.Max(0, pixel.x - radius);
+			var miny = (int)Mathf.Max(0, pixel.y - radius);
+			var maxx = (int)Mathf.Min(_board.Size.x - 1, pixel.x + radius);
+			var maxy = (int)Mathf.Min(_board.Size.y - 1, pixel.y + radius);
+			for (int x = minx; x <= maxx; x++)
+			{
+				for (int y = miny; y <= maxy; y++)
+				{
+					_board.SetPixel(x, y, _drawColor, false);
+				}
+			}
+			_board.Apply();
 		}
 	}
 }
