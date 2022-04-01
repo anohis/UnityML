@@ -11,7 +11,7 @@ using Tensorflow.NumPy;
 using static Tensorflow.Binding;
 using static Tensorflow.KerasApi;
 
-namespace ML.Handwritten
+namespace ML.Handwritten.Classifier
 {
 	public class Model
 	{

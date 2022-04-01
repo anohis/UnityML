@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace ML.Handwritten
+namespace ML.Handwritten.Classifier
 {
 	public class UIPercentage : MonoBehaviour
     {

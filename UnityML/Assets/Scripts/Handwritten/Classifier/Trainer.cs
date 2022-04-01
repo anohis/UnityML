@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace ML.Handwritten
+namespace ML.Handwritten.Classifier
 {
 	public class Trainer : MonoBehaviour
 	{

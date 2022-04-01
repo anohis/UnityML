@@ -53,22 +53,22 @@
     <UnityVersion>2020.3.17f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Handwritten\Classifier\UIPercentage.cs" />
     <Compile Include="Assets\Scripts\Utility\Math\MathUtility.cs" />
+    <Compile Include="Assets\Scripts\Handwritten\Classifier\UIClassifyResult.cs" />
     <Compile Include="Assets\Scripts\Utility\TextureUtility.cs" />
     <Compile Include="Assets\Scripts\Handwritten\BoardWriter.cs" />
     <Compile Include="Assets\Scripts\Utility\Math\RectTransformExtenstion.cs" />
+    <Compile Include="Assets\Scripts\Handwritten\Classifier\Trainer.cs" />
     <Compile Include="Assets\Scripts\Utility\ButtonAttribute.cs" />
+    <Compile Include="Assets\Scripts\Handwritten\Classifier\Inferencer.cs" />
     <Compile Include="Assets\Scripts\Handwritten\Board.cs" />
     <Compile Include="Assets\Scripts\Utility\VectorExtenstion.cs" />
-    <Compile Include="Assets\Scripts\Handwritten\Model.cs" />
+    <Compile Include="Assets\Scripts\Handwritten\Classifier\Model.cs" />
     <Compile Include="Assets\Scripts\Handwritten\MnistLoader.cs" />
     <Compile Include="Assets\Scripts\Utility\Math\Bounds2D.cs" />
-    <Compile Include="Assets\Scripts\Handwritten\HandwrittenClassifier.cs" />
+    <Compile Include="Assets\Scripts\Handwritten\Classifier\HandwrittenClassifier.cs" />
     <Compile Include="Assets\Scripts\Handwritten\ImageData.cs" />
-    <Compile Include="Assets\Scripts\Handwritten\Inferencer.cs" />
-    <Compile Include="Assets\Scripts\Handwritten\UIPercentage.cs" />
-    <Compile Include="Assets\Scripts\Handwritten\UIClassifyResult.cs" />
-    <Compile Include="Assets\Scripts\Handwritten\Trainer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

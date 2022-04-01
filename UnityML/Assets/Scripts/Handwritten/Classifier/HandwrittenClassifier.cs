@@ -4,7 +4,7 @@ using System.Linq;
 using Tensorflow.Keras.Metrics;
 using UnityEngine;
 
-namespace ML.Handwritten
+namespace ML.Handwritten.Classifier
 {
 	public class HandwrittenClassifier : MonoBehaviour
 	{

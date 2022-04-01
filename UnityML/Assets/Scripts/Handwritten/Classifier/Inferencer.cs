@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ML.Handwritten
+namespace ML.Handwritten.Classifier
 {
 	public class Inferencer : MonoBehaviour
 	{
