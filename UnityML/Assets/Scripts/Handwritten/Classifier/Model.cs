@@ -57,18 +57,21 @@ namespace ML.Handwritten.Classifier
 
 		public IEnumerable<Metric> Train(float[,] input, byte[,] label)
 		{
+			var dataLen = input.GetLength(0);
+
 			var x = np.array(input);
 			var y = np_utils.to_categorical(label, _outputNode);
-			var g = tf.GradientTape();
-			var predict = _model.predict(x, (int)x.shape[0]);
-			var loss = _loss.Call(y, predict);
-			var grads = g.gradient(loss, _model.trainable_variables);
-			var z = zip(grads, _model.trainable_variables.Select(x => x as ResourceVariable));
-			_optimizer.apply_gradients(z);
+			using (var gradientTape = tf.GradientTape()) 
+			{
+				var predict = _model.predict(x, dataLen);
+				var loss = _loss.Call(y, predict);
+				var grads = gradientTape.gradient(loss, _model.trainable_variables);
+				var z = zip(grads, _model.trainable_variables.Select(x => x as ResourceVariable));
+				_optimizer.apply_gradients(z);
 
-			_metrics[0].update_state(y, predict);
-			_metrics[1].update_state(y, predict);
-
+				_metrics[0].update_state(y, predict);
+				_metrics[1].update_state(y, predict);
+			}
 			return _metrics;
 		}
 		public IEnumerable<float> Predict(float[] input)

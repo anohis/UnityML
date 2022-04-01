@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Handwritten\Classifier\UIPercentage.cs" />
     <Compile Include="Assets\Scripts\Utility\Math\MathUtility.cs" />
+    <Compile Include="Assets\Scripts\Handwritten\GAN\HandwrittenGAN.cs" />
     <Compile Include="Assets\Scripts\Handwritten\Classifier\UIClassifyResult.cs" />
     <Compile Include="Assets\Scripts\Utility\TextureUtility.cs" />
     <Compile Include="Assets\Scripts\Handwritten\BoardWriter.cs" />
@@ -68,7 +69,10 @@
     <Compile Include="Assets\Scripts\Handwritten\MnistLoader.cs" />
     <Compile Include="Assets\Scripts\Utility\Math\Bounds2D.cs" />
     <Compile Include="Assets\Scripts\Handwritten\Classifier\HandwrittenClassifier.cs" />
+    <Compile Include="Assets\Scripts\Handwritten\GAN\Trainer.cs" />
     <Compile Include="Assets\Scripts\Handwritten\ImageData.cs" />
+    <Compile Include="Assets\Scripts\Handwritten\GAN\Model.cs" />
+    <Compile Include="Assets\Scripts\Handwritten\GAN\Inferencer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

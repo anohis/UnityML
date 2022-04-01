@@ -770,7 +770,7 @@ MonoBehaviour:
   _normalColor: {r: 0, g: 0, b: 0, a: 0}
   _highlightColor: {r: 1, g: 1, b: 0, a: 1}
   _drawColor: 1
-  _drawRadius: 1
+  _drawRadius: 2
 --- !u!114 &460734304
 MonoBehaviour:
   m_ObjectHideFlags: 0
