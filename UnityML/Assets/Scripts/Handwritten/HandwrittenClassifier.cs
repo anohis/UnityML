@@ -16,14 +16,12 @@ namespace ML.Handwritten
 
 		private Model _model;
 
-		public IEnumerable<Metric> Metrics => _model.Metrics;
-
 		public float[] Classify(ImageData image)
 		{
 			return _model.Predict(image.Pixels).ToArray();
 		}
 
-		public void Train(ImageData[] images)
+		public IEnumerable<Metric> Train(ImageData[] images)
 		{
 			var dataSize = images.Length;
 			var inputs = new float[dataSize, images[0].Pixels.Length];
@@ -35,7 +33,7 @@ namespace ML.Handwritten
 				labels[i, 0] = images[i].Label;
 			}
 
-			_model.Train(inputs, labels, 32, 1);
+			return _model.Train(inputs, labels);
 
 			void SetInput(int index, float[] array)
 			{

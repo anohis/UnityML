@@ -2674,6 +2674,7 @@ MonoBehaviour:
   _mnistLoader: {fileID: 1941196532}
   _classifier: {fileID: 1199601278}
   _trainCountPerUpdate: 1000
+  _maxEpoch: 10
 --- !u!4 &1742880748
 Transform:
   m_ObjectHideFlags: 0

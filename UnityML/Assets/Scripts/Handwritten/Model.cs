@@ -1,12 +1,15 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using Tensorflow;
 using Tensorflow.Keras.Engine;
+using Tensorflow.Keras.Losses;
 using Tensorflow.Keras.Metrics;
-using Tensorflow.NumPy;
-using static Tensorflow.KerasApi;
-using static Tensorflow.Binding;
-using System.IO;
+using Tensorflow.Keras.Optimizers;
 using Tensorflow.Keras.Utils;
+using Tensorflow.NumPy;
+using static Tensorflow.Binding;
+using static Tensorflow.KerasApi;
 
 namespace ML.Handwritten
 {
@@ -14,12 +17,13 @@ namespace ML.Handwritten
 	{
 		private int _inputNode;
 		private int _outputNode;
+
 		private Functional _model;
+		private OptimizerV2 _optimizer;
+		private ILossFunc _loss;
+		private List<Metric> _metrics;
 
 		private float[,] _inputCache;
-		private float[] _labelCache;
-
-		public IEnumerable<Metric> Metrics => _model.metrics;
 
 		public void Init(int inputNode, int hiddenLayer, int hiddenNode, int outputNode, float learnRate)
 		{
@@ -27,7 +31,6 @@ namespace ML.Handwritten
 			_outputNode = outputNode;
 
 			_inputCache = new float[1, inputNode];
-			_labelCache = new float[outputNode];
 
 			var layers = keras.layers;
 
@@ -42,17 +45,31 @@ namespace ML.Handwritten
 
 			_model = keras.Model(inputs, output, name: "model");
 
-			var optimizer = keras.optimizers.RMSprop(learnRate);
-			var loss = keras.losses.CategoricalCrossentropy();
-			var metrics = new string[] { "acc" };
-			_model.compile(optimizer, loss, metrics);
+			_optimizer = keras.optimizers.RMSprop(learnRate);
+			_loss = keras.losses.CategoricalCrossentropy(from_logits: true);
+
+			_metrics = new List<Metric>
+			{
+				new MeanMetricWrapper((x, y) => _loss.Call(x, y), "loss"),
+				new MeanMetricWrapper(keras.metrics.categorical_accuracy, "acc"),
+			};
 		}
 
-		public void Train(float[,] input, byte[,] label, int batch_size, int epochs)
+		public IEnumerable<Metric> Train(float[,] input, byte[,] label)
 		{
 			var x = np.array(input);
 			var y = np_utils.to_categorical(label, _outputNode);
-			_model.fit(x, y, batch_size, epochs);
+			var g = tf.GradientTape();
+			var predict = _model.predict(x, (int)x.shape[0]);
+			var loss = _loss.Call(y, predict);
+			var grads = g.gradient(loss, _model.trainable_variables);
+			var z = zip(grads, _model.trainable_variables.Select(x => x as ResourceVariable));
+			_optimizer.apply_gradients(z);
+
+			_metrics[0].update_state(y, predict);
+			_metrics[1].update_state(y, predict);
+
+			return _metrics;
 		}
 		public IEnumerable<float> Predict(float[] input)
 		{
@@ -77,10 +94,6 @@ namespace ML.Handwritten
 				_inputCache[0, i] = input[i];
 			}
 			return np.array(_inputCache);
-		}
-		private NDArray GenerateLabelArray(byte label)
-		{
-			return np_utils.to_categorical(label, _outputNode);
 		}
 	}
 }
