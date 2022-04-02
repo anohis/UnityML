@@ -46,7 +46,7 @@ namespace ML.Handwritten.Classifier
 			_model = keras.Model(inputs, output, name: "model");
 
 			_optimizer = keras.optimizers.RMSprop(learnRate);
-			_loss = keras.losses.CategoricalCrossentropy(from_logits: true);
+			_loss = keras.losses.CategoricalCrossentropy();
 
 			_metrics = new List<Metric>
 			{
