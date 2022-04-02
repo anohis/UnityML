@@ -15,6 +15,7 @@ namespace ML.Handwritten
 		[SerializeField] private Vector2Int _boardSize;
 		[Button(nameof(Clear), nameof(Clear))]
 		[SerializeField] private int _clearBtn;
+		[SerializeField] private float[] _pixels;
 
 		private ImageData _image;
 		private Texture2D _texture;
@@ -24,6 +25,8 @@ namespace ML.Handwritten
 
 		public void Apply()
 		{
+			_pixels = _image.Pixels;
+
 			_texture.Apply();
 			OnChange?.Invoke();
 		}
@@ -54,9 +57,8 @@ namespace ML.Handwritten
 					_texture.SetPixel(x, y, color);
 				}
 			}
-			_texture.Apply();
 
-			OnChange?.Invoke();
+			Apply();
 		}
 
 		private void Awake()
@@ -66,7 +68,7 @@ namespace ML.Handwritten
 
 			_texture = new Texture2D(Size.x, Size.y, TextureFormat.RGB24, false);
 			_texture.Fill(GenerateColor(0));
-			_texture.Apply();
+			Apply();
 
 			GetComponent<RawImage>().texture = _texture;
 		}
@@ -84,7 +86,7 @@ namespace ML.Handwritten
 		{
 			_image.Fill(0);
 			_texture.Fill(GenerateColor(0));
-			_texture.Apply();
+			Apply();
 		}
 	}
 }

@@ -15,8 +15,8 @@ namespace ML.Handwritten.Classifier
 {
 	public class Model
 	{
-		private int _inputNode;
-		private int _outputNode;
+		private int _inputSize;
+		private int _outputSize;
 
 		private Functional _model;
 		private OptimizerV2 _optimizer;
@@ -25,22 +25,22 @@ namespace ML.Handwritten.Classifier
 
 		private float[,] _inputCache;
 
-		public void Init(int inputNode, int hiddenLayer, int hiddenNode, int outputNode, float learnRate)
+		public void Init(int inputSize, int hiddenLayer, int hiddenSize, int outputSize, float learnRate)
 		{
-			_inputNode = inputNode;
-			_outputNode = outputNode;
+			_inputSize = inputSize;
+			_outputSize = outputSize;
 
-			_inputCache = new float[1, inputNode];
+			_inputCache = new float[1, inputSize];
 
 			var layers = keras.layers;
 
-			var inputs = keras.Input(shape: inputNode, name: "img");
+			var inputs = keras.Input(shape: inputSize, name: "img");
 			var hidden = inputs;
 			for (int i = 0; i < hiddenLayer; i++)
 			{
-				hidden = layers.Dense(hiddenNode, activation: "relu").Apply(hidden);
+				hidden = layers.Dense(hiddenSize, activation: "relu").Apply(hidden);
 			}
-			var output = layers.Dense(outputNode).Apply(hidden);
+			var output = layers.Dense(outputSize).Apply(hidden);
 			output = layers.Softmax(-1).Apply(output);
 
 			_model = keras.Model(inputs, output, name: "model");
@@ -60,7 +60,7 @@ namespace ML.Handwritten.Classifier
 			var dataLen = input.GetLength(0);
 
 			var x = np.array(input);
-			var y = np_utils.to_categorical(label, _outputNode);
+			var y = np_utils.to_categorical(label, _outputSize);
 			using (var gradientTape = tf.GradientTape()) 
 			{
 				var predict = _model.predict(x, dataLen);
@@ -76,7 +76,7 @@ namespace ML.Handwritten.Classifier
 		}
 		public IEnumerable<float> Predict(float[] input)
 		{
-			if (input.Length != _inputNode)
+			if (input.Length != _inputSize)
 			{
 				throw new ArgumentException("input.Length Error");
 			}
@@ -84,7 +84,7 @@ namespace ML.Handwritten.Classifier
 			var x = GenerateInputArray(input);
 			var predict = _model.predict(x)[0].numpy();
 
-			for (int i = 0; i < _outputNode; i++)
+			for (int i = 0; i < _outputSize; i++)
 			{
 				yield return predict[0, i];
 			}
@@ -92,7 +92,7 @@ namespace ML.Handwritten.Classifier
 
 		private NDArray GenerateInputArray(float[] input)
 		{
-			for (int i = 0; i < _inputNode; i++)
+			for (int i = 0; i < _inputSize; i++)
 			{
 				_inputCache[0, i] = input[i];
 			}

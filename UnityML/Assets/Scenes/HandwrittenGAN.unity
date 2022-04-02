@@ -152,6 +152,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 571b943e2430eec4ca1a2ae5a183b044, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _inputSize: 128
+  _imageSize: {x: 28, y: 28}
 --- !u!4 &121563091
 Transform:
   m_ObjectHideFlags: 0
@@ -543,6 +545,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _boardSize: {x: 28, y: 28}
   _clearBtn: 0
+  _pixels: []
 --- !u!114 &1866611399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -628,8 +631,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mnistLoader: {fileID: 761058469}
   _gan: {fileID: 121563090}
-  _trainCountPerUpdate: 10000
+  _trainCountPerUpdate: 1000
   _maxEpoch: 100
+  _board: {fileID: 1866611398}
 --- !u!4 &2074197479
 Transform:
   m_ObjectHideFlags: 0

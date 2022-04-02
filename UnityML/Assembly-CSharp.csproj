@@ -54,8 +54,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Handwritten\Classifier\UIPercentage.cs" />
+    <Compile Include="Assets\Scripts\Handwritten\GAN\BinaryCrossentropy.cs" />
     <Compile Include="Assets\Scripts\Utility\Math\MathUtility.cs" />
     <Compile Include="Assets\Scripts\Handwritten\GAN\HandwrittenGAN.cs" />
+    <Compile Include="Assets\Scripts\Handwritten\GAN\Inferencer.cs" />
     <Compile Include="Assets\Scripts\Handwritten\Classifier\UIClassifyResult.cs" />
     <Compile Include="Assets\Scripts\Utility\TextureUtility.cs" />
     <Compile Include="Assets\Scripts\Handwritten\BoardWriter.cs" />
@@ -72,7 +74,6 @@
     <Compile Include="Assets\Scripts\Handwritten\GAN\Trainer.cs" />
     <Compile Include="Assets\Scripts\Handwritten\ImageData.cs" />
     <Compile Include="Assets\Scripts\Handwritten\GAN\Model.cs" />
-    <Compile Include="Assets\Scripts\Handwritten\GAN\Inferencer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -297,53 +298,11 @@
     <Reference Include="UnityEditor.UnityConnectModule">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.17f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
     </Reference>
-    <Reference Include="HDF5CSharp">
-      <HintPath>Assets\Plugins\HDF5CSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="System.IO.FileSystem.Primitives">
-      <HintPath>Assets\Plugins\System.IO.FileSystem.Primitives.dll</HintPath>
-    </Reference>
-    <Reference Include="Serilog.Sinks.Console">
-      <HintPath>Assets\Plugins\Serilog.Sinks.Console.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Memory">
-      <HintPath>Assets\Plugins\System.Memory.dll</HintPath>
-    </Reference>
-    <Reference Include="Serilog">
-      <HintPath>Assets\Plugins\Serilog.dll</HintPath>
-    </Reference>
-    <Reference Include="HDF.PInvoke.1.10">
-      <HintPath>Assets\Plugins\HDF.PInvoke.1.10.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>Assets\Plugins\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="Tensorflow.Binding">
       <HintPath>Assets\Plugins\Tensorflow.Binding.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Bcl.AsyncInterfaces">
-      <HintPath>Assets\Plugins\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
-    </Reference>
-    <Reference Include="MethodBoundaryAspect">
-      <HintPath>Assets\Plugins\MethodBoundaryAspect.dll</HintPath>
-    </Reference>
-    <Reference Include="Tensorflow.Keras">
-      <HintPath>Assets\Plugins\Tensorflow.Keras.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Runtime.CompilerServices.Unsafe">
-      <HintPath>Assets\Plugins\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Extensions.DependencyInjection">
-      <HintPath>Assets\Plugins\Microsoft.Extensions.DependencyInjection.dll</HintPath>
-    </Reference>
-    <Reference Include="Protobuf.Text">
-      <HintPath>Assets\Plugins\Protobuf.Text.dll</HintPath>
-    </Reference>
-    <Reference Include="NugetDll">
-      <HintPath>Assets\Plugins\NugetDll.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.Protobuf">
-      <HintPath>Assets\Plugins\Google.Protobuf.dll</HintPath>
+    <Reference Include="System.Memory">
+      <HintPath>Assets\Plugins\System.Memory.dll</HintPath>
     </Reference>
     <Reference Include="System.Numerics.Vectors">
       <HintPath>Assets\Plugins\System.Numerics.Vectors.dll</HintPath>
@@ -351,26 +310,59 @@
     <Reference Include="ICSharpCode.SharpZipLib">
       <HintPath>Assets\Plugins\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
-      <HintPath>Assets\Plugins\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    <Reference Include="Google.Protobuf">
+      <HintPath>Assets\Plugins\Google.Protobuf.dll</HintPath>
     </Reference>
-    <Reference Include="System.Buffers">
-      <HintPath>Assets\Plugins\System.Buffers.dll</HintPath>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces">
+      <HintPath>Assets\Plugins\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog">
+      <HintPath>Assets\Plugins\Serilog.dll</HintPath>
     </Reference>
     <Reference Include="MNIST.IO">
       <HintPath>Assets\Plugins\MNIST.IO.dll</HintPath>
     </Reference>
+    <Reference Include="Serilog.Sinks.Console">
+      <HintPath>Assets\Plugins\Serilog.Sinks.Console.dll</HintPath>
+    </Reference>
+    <Reference Include="MethodBoundaryAspect">
+      <HintPath>Assets\Plugins\MethodBoundaryAspect.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Buffers">
+      <HintPath>Assets\Plugins\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.Primitives">
+      <HintPath>Assets\Plugins\System.IO.FileSystem.Primitives.dll</HintPath>
+    </Reference>
     <Reference Include="System.Threading.Tasks.Extensions">
       <HintPath>Assets\Plugins\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Protobuf.Text">
+      <HintPath>Assets\Plugins\Protobuf.Text.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Assets\Plugins\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="HDF5CSharp">
+      <HintPath>Assets\Plugins\HDF5CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Tensorflow.Keras">
+      <HintPath>Assets\Plugins\Tensorflow.Keras.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
+      <HintPath>Assets\Plugins\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="System.Resources.Extensions">
       <HintPath>Assets\Plugins\System.Resources.Extensions.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
-      <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.17f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+    <Reference Include="Microsoft.Extensions.DependencyInjection">
+      <HintPath>Assets\Plugins\Microsoft.Extensions.DependencyInjection.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEditor.iOS.Extensions.Common">
-      <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.17f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Common.dll</HintPath>
+    <Reference Include="HDF.PInvoke.1.10">
+      <HintPath>Assets\Plugins\HDF.PInvoke.1.10.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe">
+      <HintPath>Assets\Plugins\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.17f1\Editor\Data\NetStandard\ref\2.0.0\netstandard.dll</HintPath>

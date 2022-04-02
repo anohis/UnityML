@@ -11,7 +11,7 @@ namespace ML.Handwritten.GAN
 		[Button(nameof(Generate), nameof(Generate))]
 		[SerializeField] private int _generateBtn;
 
-		private void Generate()
+		public void Generate()
 		{
 			var image = _gan.Generate();
 			_board.SetImage(image);

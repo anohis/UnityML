@@ -9,6 +9,7 @@ namespace ML.Handwritten.GAN
 		[SerializeField] private HandwrittenGAN _gan = null;
 		[SerializeField] private int _trainCountPerUpdate = 10;
 		[SerializeField] private int _maxEpoch = 1;
+		[SerializeField] private Board _board = null;
 
 		private int _epoch;
 		private int _step;
@@ -42,14 +43,14 @@ namespace ML.Handwritten.GAN
 				foreach (var v in metrics)
 				{
 					str += $"{v.Name}: {(float)(v.result().numpy())}, ";
-					//str += $"{v.Name}: {v}, ";
 					v.reset_states();
 				}
 				
 				Debug.LogError(str);
 			}
 
-			_mnistLoader.Random();
+			var image = _gan.Generate();
+			_board.SetImage(image);
 		}
 	}
 }
