@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 namespace ML.Handwritten.Classifier
 {
-	public class UIPercentage : MonoBehaviour
+    public class UIPercentage : MonoBehaviour
     {
         [SerializeField] private Image _image = null;
         [SerializeField] private Text _value = null;

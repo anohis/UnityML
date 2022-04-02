@@ -13,7 +13,7 @@ using static Tensorflow.KerasApi;
 
 namespace ML.Handwritten.Classifier
 {
-	public class Model
+    public class Model
 	{
 		private int _inputSize;
 		private int _outputSize;

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace ML.Handwritten.Classifier
 {
-	public class Trainer : MonoBehaviour
+    public class Trainer : MonoBehaviour
 	{
 		[SerializeField] private MnistLoader _mnistLoader = null;
 		[SerializeField] private HandwrittenClassifier _classifier = null;

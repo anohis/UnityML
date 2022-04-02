@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace ML.Handwritten.Classifier
 {
-	public class UIClassifyResult : MonoBehaviour
+    public class UIClassifyResult : MonoBehaviour
 	{
 		[SerializeField] private UIPercentage[] _results;
 

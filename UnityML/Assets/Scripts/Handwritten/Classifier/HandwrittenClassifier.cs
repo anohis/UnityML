@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Tensorflow.Keras.Metrics;
@@ -6,7 +5,7 @@ using UnityEngine;
 
 namespace ML.Handwritten.Classifier
 {
-	public class HandwrittenClassifier : MonoBehaviour
+    public class HandwrittenClassifier : MonoBehaviour
 	{
 		[SerializeField] private int _inputSize;
 		[SerializeField] private int _classSize;

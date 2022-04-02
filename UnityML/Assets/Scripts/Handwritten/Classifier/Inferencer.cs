@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace ML.Handwritten.Classifier
 {
-	public class Inferencer : MonoBehaviour
+    public class Inferencer : MonoBehaviour
 	{
 		[SerializeField] private Board _board = null;
 		[SerializeField] private HandwrittenClassifier _classifier = null;
