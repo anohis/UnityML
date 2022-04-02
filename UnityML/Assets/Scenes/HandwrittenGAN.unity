@@ -631,6 +631,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mnistLoader: {fileID: 761058469}
   _gan: {fileID: 121563090}
+  _targetNum: 8
   _trainCountPerUpdate: 1000
   _maxEpoch: 100
   _board: {fileID: 1866611398}
