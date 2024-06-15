@@ -4,12 +4,18 @@
 
 ## 手寫辨識
 訓練階段
-![image](https://gyazo.com/35fa95f06262e823450d284e24896f7a.mp4)
+
+![image](https://github.com/anohis/UnityML/assets/38350932/f05ff038-05d7-43f7-a094-7545670298b9)
+
 推論階段
-![image](https://gyazo.com/5f1984f59a93f8eeb8ce2a863ee5a39e.mp4)
+
+![image](https://github.com/anohis/UnityML/assets/38350932/1bfa0a07-1c3e-4a0a-a8b7-20503b3f4be0)
 
 ## 筆跡生成
 訓練階段
-![image](https://gyazo.com/d79ce4afb73ea0b3ff98861f900355da.mp4)
+
+![image](https://github.com/anohis/UnityML/assets/38350932/ffe7b063-8fa1-4968-9b66-79f1a60a11e1)
+
 推論階段
-![image](https://gyazo.com/9a59c0279002cffb6e5ab18ceda0ffa0.mp4)
+
+![image](https://github.com/anohis/UnityML/assets/38350932/af9ec114-978c-4c07-8037-a029c3fa2705)
