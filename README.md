@@ -1,4 +1,5 @@
 # 嘗試使用C#搭配TensorFlow完成訓練
+* 需要先建置NugetDll生成相關的dll
 * 注意: tensorflow.dll可能需要手動加入專案
 * 注意: 部分dll衝突需要手動刪除，例如System.Threading.dll
 
