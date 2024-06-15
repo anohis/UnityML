@@ -8,3 +8,6 @@ NugetDll/NugetDll/NugetDll/bin
 NugetDll/NugetDll/NugetDll/obj
 UnityML/Assembly-CSharp.csproj
 UnityML/UnityML.sln
+/NugetDll/NugetDll/.vs
+/UnityML/UserSettings
+UnityML/Assembly-CSharp.csproj
